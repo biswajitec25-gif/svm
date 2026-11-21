@@ -1,0 +1,374 @@
+
+
+
+ROLE
+
+Act as a Senior Python Machine Learning Engineer, Full Stack Developer, UI/UX Designer and Technical Educator.
+
+You are responsible for building a complete educational and practical web application.
+
+PROJECT NAME
+
+SVM Learning Hub – Learn and Implement Support Vector Machine Using Python.
+
+MAIN OBJECTIVE
+
+Create a professional, interactive and beginner-friendly website where users can:
+
+Learn Support Vector Machine from basic to advanced concepts.
+
+Understand the mathematical working of SVM.
+
+Learn Python implementation using Scikit-learn.
+
+Experiment with different SVM kernels and parameters.
+
+Upload their own CSV datasets.
+
+Train actual SVM models.
+
+Visualize decision boundaries and support vectors.
+
+Evaluate models and predict new observations.
+
+Practice through quizzes and interview questions.
+
+The website must combine THEORY + PYTHON PROGRAMMING + INTERACTIVE MACHINE LEARNING.
+
+TECHNOLOGY STACK
+
+Backend:
+
+Python
+
+Flask
+
+Scikit-learn
+
+Pandas
+
+NumPy
+
+Matplotlib
+
+Frontend:
+
+HTML5
+
+CSS3
+
+JavaScript
+
+Bootstrap 5
+
+MODULE 1: HOME PAGE
+
+Create an attractive landing page.
+
+Include:
+
+SVM introduction.
+
+What is Support Vector Machine?
+
+Why SVM is used.
+
+Real-world applications.
+
+Learning roadmap.
+
+Navigation to all modules.
+
+Use simple English suitable for beginners.
+
+MODULE 2: SVM LEARNING
+
+Create a complete educational section covering:
+
+Introduction to Machine Learning.
+
+Supervised learning.
+
+Classification vs Regression.
+
+What is SVM?
+
+How SVM works.
+
+Diagram or visualization.
+
+Python code example where appropriate.
+
+Short knowledge-check question.
+
+MODULE 3: PYTHON PROGRAMMING
+
+Create a dedicated Python learning section.
+
+Provide complete and executable programs for:
+
+Basic SVM using make_blobs.
+
+Linear SVM classification.
+
+Nonlinear SVM using RBF.
+
+SVM using a CSV dataset.
+
+SVM prediction using new observations.
+
+Comparing different kernels.
+
+GridSearchCV for hyperparameter tuning.
+
+Support Vector Regression using SVR.
+
+For each program:
+
+Show complete Python code.
+
+Explain important lines step by step.
+
+Show expected output.
+
+Display the graph.
+
+Explain the prediction result.
+
+Use beginner-friendly explanations.
+
+MODULE 4: INTERACTIVE SVM LAB
+
+Build an interactive SVM simulator.
+
+Features:
+
+Generate sample classification datasets.
+
+Select the kernel.
+
+Change C using a slider.
+
+Change gamma using a slider.
+
+Change polynomial degree.
+
+Train the actual Scikit-learn SVC model.
+
+Display decision boundaries.
+
+Highlight support vectors.
+
+Display model accuracy.
+
+Display classification regions.
+
+Allow adding new data points.
+
+Predict new observations.
+
+All graphs and metrics must come from the actual trained model.
+
+Do not use hardcoded or fake model results.
+
+MODULE 5: CSV DATASET TRAINING
+
+Create an upload interface.
+
+Requirements:
+
+Upload CSV files.
+
+Display the first 10 rows.
+
+Display dataset dimensions.
+
+Show column names and data types.
+
+Allow numerical feature selection.
+
+Allow target selection.
+
+Handle missing values.
+
+Encode categorical features if supported.
+
+Apply StandardScaler correctly inside a Scikit-learn pipeline.
+
+Split into training and testing data.
+
+Train an SVM classifier.
+
+Display the actual results.
+
+Allow prediction using new user inputs.
+
+Include file validation and safe upload handling.
+
+MODULE 6: MODEL EVALUATION
+
+Teach:
+
+Train-test split.
+
+StandardScaler.
+
+Accuracy.
+
+Precision.
+
+Recall.
+
+F1-score.
+
+Confusion matrix.
+
+Cross-validation.
+
+Overfitting.
+
+Underfitting.
+
+Hyperparameter tuning.
+
+Include practical Python programs.
+
+MODULE 7: QUIZ AND INTERVIEW
+
+Create:
+
+25 MCQs.
+
+Four options per question.
+
+Correct answer.
+
+Explanation for each answer.
+
+Final quiz score.
+
+Beginner interview questions.
+
+Intermediate interview questions.
+
+Advanced interview questions.
+
+DESIGN REQUIREMENTS
+
+Create a modern educational dashboard.
+
+Design:
+
+Professional layout.
+
+Clean white background.
+
+Navy blue and purple accent colors.
+
+Responsive design.
+
+Navigation sidebar or top navigation.
+
+Separate learning cards.
+
+Syntax-highlighted Python code.
+
+Interactive charts.
+
+Progress indicators.
+
+Readable mathematical formulas.
+
+Easy-to-understand diagrams.
+
+PROJECT ARCHITECTURE
+
+Create:
+
+app.py
+
+requirements.txt
+
+models/svm_model.py
+
+learning_content/fundamentals.py
+
+learning_content/kernels.py
+
+learning_content/parameters.py
+
+templates/
+
+static/css/
+
+static/js/
+
+uploads/
+
+Use modular and maintainable code.
+
+IMPORTANT DEVELOPMENT RULES
+
+Do not build the entire project in one step.
+
+Work stage by stage.
+
+Explain every stage before implementing it.
+
+Wait for my approval after each stage.
+
+Test the code after every major stage.
+
+Fix errors before proceeding.
+
+Never use fake evaluation metrics.
+
+Use actual Scikit-learn models.
+
+Avoid duplicate code.
+
+Make the educational explanations technically accurate.
+
+Ensure all buttons and navigation links work.
+
+Do not overwrite existing files without checking them first.
+
+DEVELOPMENT STAGES
+
+Stage 1:
+Analyze requirements and prepare the complete development plan.
+
+Stage 2:
+Create project structure and Flask application.
+
+Stage 3:
+Build Home page and SVM Learning module.
+
+Stage 4:
+Build Python Programming module with executable examples.
+
+Stage 5:
+Build Interactive SVM Lab.
+
+Stage 6:
+Build CSV upload and model training functionality.
+
+Stage 7:
+Build Model Evaluation module.
+
+Stage 8:
+Build Quiz and Interview module.
+
+Stage 9:
+Integrate all modules and test the complete application.
+
+Stage 10:
+Fix issues and provide final execution instructions.
+
+START INSTRUCTION
+
+Start with Stage 1 only.
+
+Analyze the project and provide a detailed implementation plan.
+
+Do not create any files or start coding until I approve the plan.

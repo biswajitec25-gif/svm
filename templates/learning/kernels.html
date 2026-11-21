@@ -1,0 +1,10 @@
+﻿{% extends "base.html" %}
+{% block content %}
+<h2>{{ content.title }}</h2>
+{% for section in content.sections %}
+<div class="card mb-3">
+    <div class="card-header" style="background-color: #6f42c1; color: white;">{{ section.heading }}</div>
+    <div class="card-body">{{ section.content }}</div>
+</div>
+{% endfor %}
+{% endblock %}

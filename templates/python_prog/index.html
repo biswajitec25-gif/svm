@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row mb-4">
+  <div class="col">
+    <h2 class="page-title">Python Programming for SVM</h2>
+    <p class="lead">Eight complete SVM programs with explanations and graph placeholders.</p>
+  </div>
+</div>
+<div class="row">
+<div class="col-md-6 mb-4">
+  <div class="card h-100 shadow-sm">
+    <div class="card-header bg-primary text-white">make_blobs basic</div>
+    <div class="card-body">
+      <h5 class="card-title">make_blobs basic</h5>
+      <pre><code class="language-python">from sklearn.datasets import make_blobs
+from sklearn.svm import SVC
+import matplotlib.pyplot as plt
+
+X, y = make_blobs(n_samples=100, centers=2, random_state=42)
+clf = SVC(kernel='linear')
+clf.fit(X, y)
+
+plt.scatter(X[:,0], X[:,1], c=y, cmap='bwr')
+plt.title("make_blobs basic")
+plt.show()</code></pre>
+      <p class="card-text mt-3">This program generates a simple 2-class blob dataset using make_blobs and trains a linear SVM classifier.</p>
+      <div class="graph-placeholder text-center p-3 border rounded bg-light">
+        <img src="{{ url_for('static', filename='images/plots/placeholder.png') }}" alt="graph placeholder" class="img-fluid" onerror="this.style.display='none'">
+        <p class="text-muted small mb-0">Graph image placeholder</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-6 mb-4">
+  <div class="card h-100 shadow-sm">
+    <div class="card-header bg-primary text-white">Linear SVM</div>
+    <div class="card-body">
+      <h5 class="card-title">Linear SVM</h5>
+      <pre><code class="language-python">from sklearn.svm import SVC
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+import numpy as np
+
+X = np.array([[1,2],[2,3],[3,3],[6,5],[7,7],[8,6]])
+y = np.array([0,0,0,1,1,1])
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
+clf = SVC(kernel='linear', C=1.0)
+clf.fit(X_train, y_train)
+print("Accuracy:", accuracy_score(y_test, clf.predict(X_test)))
+print("Support vectors:", clf.support_vectors_)</code></pre>
+      <p class="card-text mt-3">Trains a linear SVM on a small manual dataset, splits into train/test, and prints accuracy plus support vectors.</p>
+      <div class="graph-placeholder text-center p-3 border rounded bg-light">
+        <img src="{{ url_for('static', filename='images/plots/placeholder.png') }}" alt="graph placeholder" class="img-fluid" onerror="this.style.display='none'">
+        <p class="text-muted small mb-0">Graph image placeholder</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-6 mb-4">
+  <div class="card h-100 shadow-sm">
+    <div class="card-header bg-primary text-white">RBF nonlinear</div>
+    <div class="card-body">
+      <h5 class="card-title">RBF nonlinear</h5>
+      <pre><code class="language-python">from sklearn.datasets import make_moons
+from sklearn.svm import SVC
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import make_pipeline
+import matplotlib.pyplot as plt
+import numpy as np
+
+X, y = make_moons(n_samples=200, noise=0.2, random_state=42)
+clf = make_pipeline(StandardScaler(), SVC(kernel='rbf', gamma='scale'))
+clf.fit(X, y)
+
+xx, yy = np.meshgrid(np.linspace(X[:,0].min()-1, X[:,0].max()+1, 200),
+                     np.linspace(X[:,1].min()-1, X[:,1].max()+1, 200))
+Z = clf.predict(np.c_[xx.ravel(), yy.ravel()]).reshape(xx.shape)
+plt.contourf(xx, yy, Z, alpha=0.3, cmap='bwr')
+plt.scatter(X[:,0], X[:,1], c=y, cmap='bwr')
+plt.title("RBF nonlinear")
+plt.show()</code></pre>
+      <p class="card-text mt-3">Uses an RBF kernel to classify the non-linearly separable moons dataset, with scaling inside a pipeline.</p>
+      <div class="graph-placeholder text-center p-3 border rounded bg-light">
+        <img src="{{ url_for('static', filename='images/plots/placeholder.png') }}" alt="graph placeholder" class="img-fluid" onerror="this.style.display='none'">
+        <p class="text-muted small mb-0">Graph image placeholder</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-6 mb-4">
+  <div class="card h-100 shadow-sm">
+    <div class="card-header bg-primary text-white">CSV dataset</div>
+    <div class="card-body">
+      <h5 class="card-title">CSV dataset</h5>
+      <pre><code class="language-python">import pandas as pd
+from sklearn.svm import SVC
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+df = pd.read_csv('data.csv')
+X = df.drop('label', axis=1)
+y = df['label']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+clf = SVC(kernel='rbf')
+clf.fit(X_train, y_train)
+print("Test accuracy:", clf.score(X_test, y_test))</code></pre>
+      <p class="card-text mt-3">Loads a CSV dataset with pandas, scales features, trains an RBF SVM, and reports test accuracy.</p>
+      <div class="graph-placeholder text-center p-3 border rounded bg-light">
+        <img src="{{ url_for('static', filename='images/plots/placeholder.png') }}" alt="graph placeholder" class="img-fluid" onerror="this.style.display='none'">
+        <p class="text-muted small mb-0">Graph image placeholder</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-6 mb-4">
+  <div class="card h-100 shadow-sm">
+    <div class="card-header bg-primary text-white">Prediction</div>
+    <div class="card-body">
+      <h5 class="card-title">Prediction</h5>
+      <pre><code class="language-python">from sklearn.svm import SVC
+import numpy as np
+
+X = np.array([[0,0],[1,1],[2,2],[3,3]])
+y = np.array([0,0,1,1])
+clf = SVC(kernel='linear')
+clf.fit(X, y)
+
+samples = np.array([[0.5,0.5],[2.5,2.5],[4,4]])
+preds = clf.predict(samples)
+print("Predictions:", preds)
+print("Decision function:", clf.decision_function(samples))</code></pre>
+      <p class="card-text mt-3">Fits a linear SVM and predicts labels for new samples, also printing decision function values.</p>
+      <div class="graph-placeholder text-center p-3 border rounded bg-light">
+        <img src="{{ url_for('static', filename='images/plots/placeholder.png') }}" alt="graph placeholder" class="img-fluid" onerror="this.style.display='none'">
+        <p class="text-muted small mb-0">Graph image placeholder</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-6 mb-4">
+  <div class="card h-100 shadow-sm">
+    <div class="card-header bg-primary text-white">Kernel comparison</div>
+    <div class="card-body">
+      <h5 class="card-title">Kernel comparison</h5>
+      <pre><code class="language-python">from sklearn.datasets import make_circles
+from sklearn.svm import SVC
+import matplotlib.pyplot as plt
+import numpy as np
+
+X, y = make_circles(n_samples=200, factor=0.5, noise=0.1, random_state=42)
+kernels = ['linear','poly','rbf','sigmoid']
+fig, axes = plt.subplots(2,2,figsize=(10,10))
+for ax, k in zip(axes.ravel(), kernels):
+    clf = SVC(kernel=k)
+    clf.fit(X, y)
+    ax.scatter(X[:,0], X[:,1], c=y, cmap='bwr', s=15)
+    ax.set_title(k)
+plt.tight_layout()
+plt.show()</code></pre>
+      <p class="card-text mt-3">Compares four SVM kernels (linear, poly, rbf, sigmoid) on a concentric circles dataset.</p>
+      <div class="graph-placeholder text-center p-3 border rounded bg-light">
+        <img src="{{ url_for('static', filename='images/plots/placeholder.png') }}" alt="graph placeholder" class="img-fluid" onerror="this.style.display='none'">
+        <p class="text-muted small mb-0">Graph image placeholder</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-6 mb-4">
+  <div class="card h-100 shadow-sm">
+    <div class="card-header bg-primary text-white">GridSearchCV</div>
+    <div class="card-body">
+      <h5 class="card-title">GridSearchCV</h5>
+      <pre><code class="language-python">from sklearn.svm import SVC
+from sklearn.model_selection import GridSearchCV
+from sklearn.datasets import make_blobs
+
+X, y = make_blobs(n_samples=200, centers=2, random_state=42)
+param_grid = {'C':[0.1,1,10], 'gamma':['scale','auto'], 'kernel':['rbf','linear']}
+gs = GridSearchCV(SVC(), param_grid, cv=5, n_jobs=-1)
+gs.fit(X, y)
+print("Best params:", gs.best_params_)
+print("Best score:", gs.best_score_)</code></pre>
+      <p class="card-text mt-3">Uses GridSearchCV to tune C, gamma, and kernel hyperparameters with 5-fold cross-validation.</p>
+      <div class="graph-placeholder text-center p-3 border rounded bg-light">
+        <img src="{{ url_for('static', filename='images/plots/placeholder.png') }}" alt="graph placeholder" class="img-fluid" onerror="this.style.display='none'">
+        <p class="text-muted small mb-0">Graph image placeholder</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-6 mb-4">
+  <div class="card h-100 shadow-sm">
+    <div class="card-header bg-primary text-white">SVR</div>
+    <div class="card-body">
+      <h5 class="card-title">SVR</h5>
+      <pre><code class="language-python">from sklearn.svm import SVR
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+import numpy as np
+
+X = np.sort(5*np.random.rand(100,1), axis=0)
+y = np.sin(X).ravel()
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+reg = SVR(kernel='rbf', C=100, gamma=0.1, epsilon=0.1)
+reg.fit(X_train, y_train)
+pred = reg.predict(X_test)
+print("MSE:", mean_squared_error(y_test, pred))</code></pre>
+      <p class="card-text mt-3">Support Vector Regression: fits an SVR model on a sine wave and reports mean squared error.</p>
+      <div class="graph-placeholder text-center p-3 border rounded bg-light">
+        <img src="{{ url_for('static', filename='images/plots/placeholder.png') }}" alt="graph placeholder" class="img-fluid" onerror="this.style.display='none'">
+        <p class="text-muted small mb-0">Graph image placeholder</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
