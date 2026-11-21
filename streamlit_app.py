@@ -113,5 +113,5 @@ with tab4:
             score += 1
     st.write(f"**Score: {score}/{len(questions)}**")
 
-st.sidebar.markdown("### SVM Learning Hub")
+st.sidebar.markdown("##")
 st.sidebar.markdown("Built with Streamlit + scikit-learn")
