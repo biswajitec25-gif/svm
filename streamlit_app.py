@@ -47,8 +47,8 @@ with tab2:
     st.header("Interactive SVM Lab")
     dataset = st.selectbox("Dataset", ["Blobs", "Moons", "Circles"])
     kernel = st.selectbox("Kernel", ["linear", "poly", "rbf", "sigmoid"])
-    C = st.slider("C (regularization)", 0.01, 100.0, 1.0, log=True)
-    gamma = st.slider("Gamma", 0.001, 10.0, 1.0, log=True)
+    C = st.slider("C (regularization)", 0.01, 100.0, 1.0)
+    gamma = st.slider("Gamma", 0.001, 10.0, 1.0)
     degree = st.slider("Degree (poly)", 2, 5, 3)
     
     if st.button("Train Model"):
