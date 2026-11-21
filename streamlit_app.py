@@ -14,6 +14,14 @@ import io
 
 st.set_page_config(page_title="SVM Learning Hub", page_icon="??", layout="wide")
 
+st.markdown("""
+<style>
+    .main .block-container { padding-top: 2rem; }
+    h1 { color: #001f3f; }
+    h2 { color: #6f42c1; }
+    .stButton>button { background: linear-gradient(135deg, #6f42c1, #5a32a3); color: white; border: none; border-radius: 10px; }
+</style>
+""", unsafe_allow_html=True)
 st.title("?? SVM Learning Hub")
 st.markdown("Learn and implement Support Vector Machines with Python.")
 
